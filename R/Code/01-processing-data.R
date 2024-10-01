@@ -37,12 +37,9 @@ data_clean_hh <- data_tidy_hh %>%
     # Replace values in the crop variable based on crop_other using regex for new crops
     mutate(crop = case_when(str_detect(crop_other, "Coconut") ~ 40, str_detect(crop_other, "Sesame") ~ 41, TRUE ~ crop)) %>%
     # Recode negative numeric values (-88) as missing (NA)
-    mutate(across(where(is.numeric), ~ replace(., . == -88, NA))) 
-    #%>%
+    mutate(across(where(is.numeric), ~ replace(., . == -88, NA))) %>%
     # Add variable labels
-    #set_variable_labels(
-        #duration = "Duration numeric", submissiondate = "Submission date", ar_farm_unit = "Unit of measurement of farm size", crop = "Crop"
-    #)
+    set_variable_labels(duration = "Duration of the interview (Minutes)", submissiondate = "Date of the inteview, as date")
 
 # Save the household data
 write_dta(data_clean_hh, file.path(data_path, "Intermediate/TZA_CCT_HH.dta"))
@@ -59,10 +56,10 @@ data_tidy_mem <- data_dedup %>%
 ### Data cleaning for HH-member level
 data_clean_mem <- data_tidy_mem %>%
     # Drop rows where gender is missing (NA)
-    filter(!is.na(gender)) 
-    #%>%
+    filter(!is.na(gender)) %>%
     # Variable labels
-    #......
+    set_variable_labels(member = "Member ID", age = "Age of member", clinic_visit = "Visits at the clinic in past 12 months", days_sick = "Sick days taken in past 4 weeks" , treat_cost = "Cost of treatment", days_impact = "Number of days member was unable to perform daily activities")
+
 
 # Save the tidy household-member data
 write_dta(data_clean_mem, file.path(data_path, "Intermediate/TZA_CCT_HH_mem.dta"))
