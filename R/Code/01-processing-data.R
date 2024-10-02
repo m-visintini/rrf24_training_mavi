@@ -33,7 +33,8 @@ data_clean_hh <- data_tidy_hh %>%
     # Convert duration to numeric (if it is not already)
     mutate(duration = as.numeric(duration)) %>%
     # Convert ar_farm_unit to factor (categorical data)
-    mutate(ar_farm_unit = as.factor(ar_farm_unit)) %>%
+    mutate(ar_unit = as.factor(ar_farm_unit)) %>%
+    mutate(ar_unit = na_if(ar_unit, "")) %>%
     # Replace values in the crop variable based on crop_other using regex for new crops
     mutate(crop = case_when(str_detect(crop_other, "Coconut") ~ 40, str_detect(crop_other, "Sesame") ~ 41, TRUE ~ crop)) %>%
     # Recode negative numeric values (-88) as missing (NA)
