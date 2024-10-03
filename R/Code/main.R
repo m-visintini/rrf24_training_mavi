@@ -21,7 +21,7 @@ library(RColorBrewer) # color palettes
 # this is the second root of the project, the first root is the code whose directory 
 # is already being handled by the rstudio project.
 
-data_path <- selected_dir <- rstudioapi::selectDirectory()
+data_path <- rstudioapi::selectDirectory()
 
 # Run the R scripts ----
 
