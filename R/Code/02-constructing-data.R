@@ -12,22 +12,6 @@ mem_data <- read_dta(file.path(data_path, "Intermediate/TZA_CCT_HH_mem.dta"))
 # Load secondary data
 secondary_data <- read_dta(file.path(data_path, "Intermediate/TZA_amenity_tidy.dta"))
 
-# Exercise 1: Plan construction outputs ----
-# Plan the following outputs:
-# 1. Area in acres.
-# 2. Household consumption (food and nonfood) in USD.
-# 3. Any HH member sick.
-# 4. Any HH member can read or write.
-# 5. Average sick days.
-# 6. Total treatment cost in USD.
-# 7. Total medical facilities.
-
-
-
-# Exercise 2: Standardize conversion values ----
-# Define standardized conversion values:
-# 1. Conversion factor for acres.
-# 2. USD conversion factor.
 
 # Data construction: Household (HH) ----
 # Instructions:
@@ -96,7 +80,6 @@ hh_mem_collapsed <- mem_data  %>%
                         any_read = "Any member can read/write",
                         avg_sick_days = "Average sick days",
                         total_treatment_cost_usd = "Total treatment cost in USD")
-
 
 
 

@@ -2,16 +2,15 @@
 # 03. Data Analysis
 
 # Libraries
-library(haven)
-library(dplyr)
-library(modelsummary)
-library(stargazer)
-library(ggplot2)
-library(tidyr)
+# library(haven)
+# library(dplyr)
+# library(modelsummary)
+# library(stargazer)
+# library(ggplot2)
+# library(tidyr)
 
 # Load data 
 #household level data
-data_path <- "/Users/worldbank/Documents/RRF Course/DataWork/Data/"
 hh_data   <- read_dta(file.path(data_path, "Final/TZA_CCT_analysis.dta"))
 
 # secondary data 
@@ -78,8 +77,9 @@ stargazer(
     header = FALSE,
     keep.stat = c("n", "adj.rsq"),
     notes = "Standard errors in parentheses",
-    out = file.path("Outputs","regression_table.html")
+    out = file.path("Outputs","regression_table.tex")
 )
+
 
 # Graphs: Area cultivated by treatment assignment across districts ----
 
