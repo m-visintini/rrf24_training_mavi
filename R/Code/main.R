@@ -3,6 +3,9 @@
 # Load libraries ---- 
 
 # Load necessary libraries
+## I couldn't run with one click because I didn't have the packages
+## But everything worked properly!! Well done!
+
 library(haven)  # for reading .dta files
 library(dplyr)  # for data manipulation
 library(tidyr)  # for reshaping data
